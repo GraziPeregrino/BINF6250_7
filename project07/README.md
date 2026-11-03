@@ -1,5 +1,5 @@
 # Introduction
-Description of the project
+This project has a purpose of guiding us on the process of understanding the Burrows-Wheeler Transform(BWT) algorithm and its applications in bioinformatics, specially when it is applied on  sequence alignment, pattern matching and data compression. We explored suffix array and the construction of BWT from the suffix array, which help to optimize data processing. Our group worked together to develop the pseudocode and translating it into Python, gaining a better understanding of the algorithm design, indexing and data structures associated with the algorithm. throughout this project, We improved our problem-solving skills, strengthened our collaboration as team and gained experience implementing the algorithm.
 
 # Pseudocode
 
@@ -145,9 +145,74 @@ Output: A tuple containing the updated lower and upper boundaries of the search 
 
 def findmatch()
 ```
+    IF query is empty:
+        RETURN []
+    ADD sentinel to reference
 
+    BUILD suffix array
+    BUILD BWT_from_suffix_array
+    BUILD count table
+    BUILD occurrence table
+
+    lower ← 0
+    upper ← LEN(BWT_from_suffix_array)
+
+    FOR each character in query from right to left:
+
+        lower, upper ← update_range()
+        IF lower == upper:
+            RETURN []
+
+    # Step 6: Retrieve original positions
+    matching_positions ← suffix_array[lower:upper]
+
+    # Step 7: Return sorted positions
+    RETURN SORT(matching_positions)
+```
+def run_length_encode()
+```
+    encoded_text ← ""
+
+    IF LENGTH(input_text) == 0:
+        RETURN encoded_text
+
+    current_character ← input_text[0]
+    count ← 1
+
+    FOR i FROM 1 TO LENGTH(input_text) - 1:
+
+        character ← input_text[i]
+        IF character == current_character:
+            count ← count + 1
+        ELSE:
+            encoded_text ← encoded_text + current_character + TO_STRING(count)
+            current_character ← character
+            count ← 1
+
+    encoded_text ← encoded_text + current_character + TO_STRING(count)
+    RETURN encoded_text
 ```
 
+def run_length_decode()
+```
+    INITIALIZE string ← ""
+    i ← 0
+
+    WHILE i < LENGTH(encoded_text):
+
+        character ← encoded_text[i]
+        i ← i + 1
+        count_string ← ""
+
+        WHILE i < LENGTH(encoded_text) AND IS_DIGIT(encoded_text[i]):
+            count_string ← count_string + encoded_text[i]
+            i ← i + 1
+
+        count ← TO_INTEGER(count_string)
+        decoded_text ← decoded_text + (character REPEATED count TIMES)
+
+    RETURN decoded_text
+```
 
 # Successes
 Description of the team's learning points
@@ -159,8 +224,22 @@ Description of the stumbling blocks the team experienced
 ## Group Leader
 Group leader's reflection on the project
 
-## Other member
-Other members' reflections on the project
+## Member Graziano 
+**Issues** 
+
+**What I Learn** 
+
+**Next steps** 
 
 # Generative AI Appendix
-As per the syllabus
+1. Description of which generative AI was used and its version.
+Claude Opus 5
+
+2. The entire prompt that was used to generate the content.
+Can you help me to fix my pseudocode to a the github format? I need a better explanation of the Burrows-Wheeler Transform(BWT) algorithm and its applications in bioinformatics.
+
+3. An explanation of how it was used (e.g., to generate ideas). I used it as a tool to learn the concepts described on the articles and materials, asking for further clarification on the material and extra examples.
+
+4. A justification for why generative AI was used.
+
+Sometimes just reading a concept and formula is not enough for me to have a grasp on the material, so I used it as an additional source to lean about the Burrows-Wheeler algorithm, and also to understand its optmization using suffix array.
