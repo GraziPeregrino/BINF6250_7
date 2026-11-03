@@ -215,21 +215,21 @@ def run_length_decode()
 ```
 
 # Successes
-Description of the team's learning points
+One of our main successes was developing a better understanding of the Burrows Wheeler Transform algorithm and how the process of pattern matching can be accelerated by using Suffix Arrays. This project was a great opportunity to build on what we have been learning in class and apply our knowledge to a more complex algorithm.
 
 # Struggles
-Description of the stumbling blocks the team experienced
+I want point at what I think was the biggest challenge on this section which was the understanding and implementation of the upper and lower boundaries on the update_range function. At the end we worked together and we were able to resolve the problem and achieve the expected results.
 
 # Personal Reflections
 ## Group Leader
 Group leader's reflection on the project
 
 ## Member Graziano 
-**Issues** 
+**Issues** I believe the biggest struggle was the understanding of the function update range. That is a big piece of the homework and it defines upper and lower bound. The calculation that will be the center of the encoding and decoding.
 
-**What I Learn** 
+**What I Learn** While working on the project, we work as a team to resolve the pseudocode and understand to goal of the function and how each part was build. We for sure improved our reasoning skills and learn with algorithm.
 
-**Next steps** 
+**Next steps** I would like to keep building on this knowledge and how to use the Burrows-Wheeler Transform on different scenarios and problems. I also want to keep improving my ability to understand complex algorithms and its implementations.
 
 # Generative AI Appendix
 1. Description of which generative AI was used and its version.
