@@ -55,10 +55,38 @@ METHOD viterbi(observations)
         RETURN the path and best log probability
 ```
 # Notebook Usage
+1. Import and download any modules required.
+2. Run the code block by block, including the tests provided.
 
 # Biological, Computational, Algorithmic Considerations 
 
-# Resemblance to Bioinformatics Tool: HMMER 
+**Biological** 
+1. Determining the definition of each hidden state
+   * Example: CpG island detection (CpG, Genome) 
+2. Nucleotide or Amino Acid Sequence Properties
+   * Considering GC-rich regions, conserved motifs 
+3. Evolutionary Variation
+   * Detecting mutations such as SNPs or indels
+
+*Computational*
+1. Memory Complexity and Runtime
+   * Example: More than 2 states and a long sequence can create a large matrix and cause a slower runtime. 
+2. Numerical Underflow
+   * Using logarithmic functions to provide statistical significance 
+3. Scalability
+   * FASTA files are large and have many reads 
+
+*Algorithmic* 
+1. The number of states
+   * Too few: missing biological data
+   * Too many: overfitting 
+2. Unknown nucleotides
+   * 'N' is often seen in sequencing data, could we assign a small emission probabilities
+3. Edge Cases
+
+# Future Projects 
+* *Use of several classes*: An important consideration is that this project will extend beyond the Viterbi algorithm. Using the idea of inheritance will be helpful as we add additional algorithms to HMMs. 
+* *Use of decorators*: Although the usage of decorators is not necessary, using them in practice would provide insight into their function in object-oriented programming. Utilizing known and existing decorators such as ```@dataclass```, ```@setter```, or ```@getter``` can be useful in validation of data. 
 
 # Successes
 * *Output:* We were able to successfully produce an output for each of our methods within the class. Initially, we thought about creating one Viterbi method within the ```class Hidden Markov Model:```; however for testing purposes, we wanted to construct separate methods for each step (Initialization, Recursion, Termination). This allowed us to debug and test the code as we live-coded one by one together.   
